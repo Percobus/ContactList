@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MainApp.Models
 {
     public class Contact        // Bygger modellen för kontakterna
@@ -19,7 +14,7 @@ namespace MainApp.Models
 
         public Contact()
         {
-            Id = Guid.NewGuid().ToString();             // Ger ett Id ett unikt värde
+            Id = Guid.NewGuid().ToString();             // Ger ett Id ett unikt värde GUID
         }
     }
 }
