@@ -5,16 +5,16 @@ namespace MainApp.Services
 {
     public class ContactService
     {
-        private List<Contact> _contacts = [];
-        private readonly FileService _fileService = new();
+        private List<Contact> _contacts = [];                                   // Lista för kontakter
+        private readonly FileService _fileService = new();                      // Hanterar filoperationer
 
-        public void Add(Contact contact)
+        public void Add(Contact contact)                                        // Lägger till en ny kontakt till listan och sparar
         {
             _contacts.Add(contact);
             _fileService.SaveListToFile(_contacts);
         }
 
-        public IEnumerable<Contact> GetAll()
+        public IEnumerable<Contact> GetAll()                                    // Hämtar alla kontakter från filen och returnerar
         {
             _contacts = _fileService.LoadListFromFile();
             return _contacts;
