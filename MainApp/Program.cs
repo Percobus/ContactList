@@ -7,9 +7,9 @@ namespace MainApp
     {
         static void Main(string[] args)
         {
-            var menuService = new MenuService();
+            var menuService = new MenuService();                                        // Skapar en MenuService
 
-            while (true)
+            while (true)                                                                // While-loop som håller igång programmet
             {
                 Console.Clear();
                 Console.WriteLine("Inlämningsuppgift C# - En kontaktlista!");
@@ -21,21 +21,21 @@ namespace MainApp
                 Console.WriteLine(" ");
                 Console.Write("Ditt val: ");
 
-                var choice = Console.ReadLine();
+                var choice = Console.ReadLine();                                        // Sparar in användarens val
 
-                switch (choice)
+                switch (choice)                                                         // Switch för att hantera val
                 {
                     case "1": 
-                        menuService.ViewAllContactsDialog();
+                        menuService.ViewAllContactsDialog();                            // Alternativ för att visa kontaktlistan
                         break;
                     case "2":
-                        menuService.CreateUserDialog();
+                        menuService.CreateUserDialog();                                 // Skapa en ny kontakt
                         break;
                     case "3":
-                        Console.WriteLine("Välkommen åter!");
+                        Console.WriteLine("Välkommen åter!");                           // Dialog vid avslut av programmet
                         return;
                     default:
-                        Console.WriteLine("Försök igen.");
+                        Console.WriteLine("Försök igen.");                              // Om valet är ogiltligt
                         break;
                 }
 
