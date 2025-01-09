@@ -5,7 +5,13 @@ namespace MainApp.Services
 {
     public class MenuService
     {
-        private readonly ContactService _contactService = new();
+        private readonly ContactService _contactService;
+
+        public MenuService()
+        {
+            var fileService = new FileService("Data", "contactlist.json"); 
+            _contactService = new ContactService(fileService);
+        }
 
         public void CreateUserDialog()
         {

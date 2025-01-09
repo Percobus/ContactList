@@ -19,7 +19,7 @@ namespace MainApp.Tests
             _testDirectoryPath = "TestData";
             _testFilePath = Path.Combine(_testDirectoryPath, "testcontacts.json");
             _fileService = new FileService(_testDirectoryPath, "testcontacts.json");
-            _contactService = new ContactService();
+            _contactService = new ContactService(_fileService);
 
             // Rensar upp eventuell testdata
             if (Directory.Exists(_testDirectoryPath))
