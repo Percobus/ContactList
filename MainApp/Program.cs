@@ -25,7 +25,7 @@ namespace MainApp
 
                 switch (choice)                                                         // Switch för att hantera val
                 {
-                    case "1": 
+                    case "1":
                         menuService.ViewAllContactsDialog();                            // Alternativ för att visa kontaktlistan
                         break;
                     case "2":
@@ -45,4 +45,3 @@ namespace MainApp
         }
     }
 }
-

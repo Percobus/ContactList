@@ -37,7 +37,7 @@ namespace MainApp.Services
         {
             Console.Clear();
 
-            foreach(var contact in _contactService.GetAll())
+            foreach (var contact in _contactService.GetAll())
             {
                 Console.WriteLine($"{"Id:",-15}{contact.Id}");
                 Console.WriteLine($"{"Namn:",-15}{contact.FirstName} {contact.LastName}");

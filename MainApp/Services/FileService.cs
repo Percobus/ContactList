@@ -25,6 +25,8 @@ namespace MainApp.Services
 
                 var json = JsonSerializer.Serialize(list);
 
+                Console.WriteLine($"Sparar {list.Count} kontakter till fil...");                          // Loggning
+
                 File.WriteAllText(_filePath, json);                                                       // Skriver JSON till filen
             }
             catch (Exception ex)
@@ -42,11 +44,23 @@ namespace MainApp.Services
 
                 var json = File.ReadAllText(_filePath);                                                 // Läser in listan som en sträng
                 var list = JsonSerializer.Deserialize<List<Contact>>(json);
+
+
+                /* If-satsen är genererad av ChatGPT 4.0 */
+                if (list != null && list.Any())  // Kontrollera om deserialiseringen lyckades och listan inte är tom
+                {
+                    Console.WriteLine($"Loaded {list.Count} contacts from file.");
+                }
+                else
+                {
+                    Console.WriteLine("File is empty or could not be deserialized.");
+                }
+
                 return list ?? new List<Contact>();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
                 return new List<Contact>();
             }
 
