@@ -24,5 +24,13 @@ namespace MainApp.Services
             _contacts = _fileService.LoadListFromFile();
             return _contacts;
         }
+
+        public bool ValidateContact(Contact contact)                            // Validerar en kontakt
+        {
+            return !string.IsNullOrWhiteSpace(contact.FirstName) && 
+                !string.IsNullOrWhiteSpace(contact.LastName) &&
+                !string.IsNullOrWhiteSpace(contact.Email) &&
+                !string.IsNullOrWhiteSpace(contact.Phone);
+        }
     }
 }

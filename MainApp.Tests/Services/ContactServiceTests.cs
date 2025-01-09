@@ -70,5 +70,44 @@ namespace MainApp.Tests
             Assert.Equal("John", contacts[0].FirstName);
             Assert.Equal("Jane", contacts[1].FirstName);
         }
+
+        // Här börjar testerna för ValidateContact
+        [Fact]
+        public void ValidateContact_ShouldReturnTrueForValidContact()
+        {
+            // Arrange
+            var contact = new Contact
+            {
+                FirstName = "John",
+                LastName = "Doe",
+                Email = "john.doe@example.com",
+                Phone = "123456789"
+            };
+
+            // Act
+            var isValid = _contactService.ValidateContact(contact);
+
+            // Assert
+            Assert.True(isValid);
+        }
+
+        [Fact]
+        public void ValidateContact_ShouldReturnFalseForInvalidContact()
+        {
+            // Arrange
+            var contact = new Contact
+            {
+                FirstName = "",
+                LastName = "Doe",
+                Email = "john.doe@example.com",
+                Phone = "123456789"
+            };
+
+            // Act
+            var isValid = _contactService.ValidateContact(contact);
+
+            // Assert
+            Assert.False(isValid);
+        }
     }
 }
